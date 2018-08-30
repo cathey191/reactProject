@@ -1,21 +1,42 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
+	constructor(props) {
+		super(props);
+		this.onSubmit = this.onSubmit.bind(this);
+	}
+
 	render() {
 		return (
 			<div>
-				<form>
+				<form onSubmit={this.onSubmit}>
 					<div className="form-group">
-						<input type="text" name="input" className="form-control" />
+						<input
+							type="text"
+							name="input"
+							ref="newItem"
+							className="form-control"
+						/>
 					</div>
 					<div className="form-group">
-						<button type="button" className="btn btn-primary btn-lg btn-block">
+						<button type="submit" className="btn btn-primary btn-lg btn-block">
 							Add New Item
 						</button>
 					</div>
 				</form>
 			</div>
 		);
+	}
+
+	onSubmit(e) {
+		e.preventDefault();
+		var newItem = this.refs.newItem.value.trim();
+		if (!newItem) {
+			alert('Please enter a new item');
+			return;
+		}
+		this.props.addNew(newItem);
+		this.refs.newItem.value = '';
 	}
 }
 

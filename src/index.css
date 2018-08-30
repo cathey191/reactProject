@@ -1,3 +1,12 @@
 body {
 	height: 100vh;
 }
+
+.jumboDark {
+	background-color: #2c3e50;
+	color: white;
+}
+
+.jumboDark ul li {
+	color: #2c3e50;
+}
