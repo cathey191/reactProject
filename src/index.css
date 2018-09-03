@@ -10,3 +10,9 @@ body {
 .jumboDark ul li {
 	color: #2c3e50;
 }
+
+.list-group-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
